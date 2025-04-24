@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" class="govuk-template">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:text="${pageTitle} ?: 'GOV.UK App'">GOV.UK App</title>
+</head>
+<body class="govuk-template__body">
+
+<div th:replace="fragments/header :: govukHeader"></div>
+
+<main class="govuk-main-wrapper" id="main-content" role="main">
+<!--    <div th:replace="~{::section}"></div>-->
+    Welcome to Home page
+</main>
+
+<div th:replace="fragments/footer :: govukFooter"></div>
+
+</body>
+</html>
