@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Government Contracts</title>
+</head>
+<body>
+
+<h1>Government Contracts</h1>
+
+<form th:action="@{/government-contract}" th:object="${governmentContractForm}" method="post">
+
+    <div>
+        <label for="numberOfContracts">Number of Government Contracts:</label>
+        <input type="number" id="numberOfContracts" th:field="*{numberOfContracts}" min="0"/>
+        <input type="hidden" name="id" th:value="${id}" />
+        <div th:if="${#fields.hasErrors('numberOfContracts')}" th:errors="*{numberOfContracts}" style="color: #ff0000;"></div>
+    </div>
+
+    <button type="submit">Continue</button>
+
+</form>
+
+</body>
+</html>

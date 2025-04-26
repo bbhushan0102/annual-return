@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Income and Spending</title>
+    <link rel="stylesheet" href="https://assets.publishing.service.gov.uk/government-frontend/govuk-frontend-4.4.0.min.css">
+</head>
+
+<body class="govuk-template__body">
+
+<header th:replace="fragments/header :: header"></header>
+
+<div class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+        <form th:action="@{/income-spending}" th:object="${incomeSpendingForm}" method="post" novalidate>
+
+            <!-- Error Summary -->
+            <div th:if="${#fields.hasErrors()}" class="govuk-error-summary" data-module="govuk-error-summary">
+                <div role="alert">
+                    <h2 class="govuk-error-summary__title">There is a problem</h2>
+                    <div class="govuk-error-summary__body">
+                        <ul class="govuk-list govuk-error-summary__list">
+                            <li th:each="err : ${#fields.errors()}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="govuk-heading-l">What is your income and spending for this financial year?</h1>
+
+            <!-- Income Field -->
+            <div class="govuk-form-group" th:classappend="${#fields.hasErrors('income')} ? 'govuk-form-group--error'">
+                <label class="govuk-label" for="income">Income (£)</label>
+                <span class="govuk-hint">Enter your total income up to a billion pounds.</span>
+                <span th:if="${#fields.hasErrors('income')}" class="govuk-error-message" th:errors="*{income}"></span>
+                <input class="govuk-input" id="income" name="income" type="text" th:field="*{income}" inputmode="decimal">
+            </div>
+
+            <!-- Spending Field -->
+            <div class="govuk-form-group" th:classappend="${#fields.hasErrors('spending')} ? 'govuk-form-group--error'">
+                <label class="govuk-label" for="spending">Spending (£)</label>
+                <span class="govuk-hint">Enter your total spending up to a billion pounds.</span>
+                <span th:if="${#fields.hasErrors('spending')}" class="govuk-error-message" th:errors="*{spending}"></span>
+                <input class="govuk-input" id="spending" name="spending" type="text" th:field="*{spending}" inputmode="decimal">
+            </div>
+
+            <!-- Continue Button -->
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button" type="submit">Continue</button>
+            </div>
+
+        </form>
+
+    </main>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+
+</body>
+
+</html>
