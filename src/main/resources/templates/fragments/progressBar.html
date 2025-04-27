@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+        .progress-bar {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #000;
+            position: relative;
+        }
+
+        .progress-bar div {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .progress-bar .step {
+            background-color: #ddd;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .progress-bar .completed {
+            background-color: green;
+            color: white;
+        }
+
+        .progress-bar .current {
+            background-color: orange;
+            color: white;
+        }
+
+        .progress-bar .notstarted {
+            background-color: grey;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Progress Bar</h1>
+<div class="progress-bar">
+    <div class="step ${progressStatus['incomeSpending']}">
+        <a href="/income-spending" class="${progressStatus['incomeSpending']}">Income and Spending</a>
+    </div>
+    <div class="step ${progressStatus['governmentContract']}">
+        <a href="/government-contract?id=${id}" class="${progressStatus['governmentContract']}">Government Contract</a>
+
+    </div>
+    <div class="step ${progressStatus['governmentContractValue']}">
+        <a href="/government-contract-value?id=${id}" class="${progressStatus['governmentContractValue']}">Government Contract Value</a>
+    </div>
+</div>
+</body>
+</html>
