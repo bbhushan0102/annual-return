@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/govuk-frontend-5.7.1.min.css}">
+    <script type="module" th:src="@{/js/govuk-frontend-5.7.1.min.js}"></script>
     <title th:text="${pageTitle} ?: 'GOV.UK App'">GOV.UK App</title>
 </head>
 <body class="govuk-template__body">
 
-<div th:replace="fragments/header :: govukHeader"></div>
+<div th:replace="~{fragments/header :: govukHeader}"></div>
 
 <main class="govuk-main-wrapper" id="main-content" role="main">
 <!--    <div th:replace="~{::section}"></div>-->
     Welcome to Home page
 </main>
 
-<div th:replace="fragments/footer :: govukFooter"></div>
+<div th:replace="~{fragments/footer :: govukFooter}"></div>
 
 </body>
 <div th:replace="~{fragments/progressBar}"></div>

@@ -2,7 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Government Contracts</title>
+    <link rel="stylesheet" th:href="@{/css/govuk-frontend-5.7.1.min.css}">
+    <script type="module" th:src="@{/js/govuk-frontend-5.7.1.min.js}"></script>
 </head>
+<div th:replace="~{fragments/header :: govukHeader}"></div>
 <body>
 
 <h1>Government Contracts</h1>
@@ -21,4 +24,5 @@
 </form>
 <div th:replace="~{fragments/progressBar}"></div>
 </body>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
 </html>
